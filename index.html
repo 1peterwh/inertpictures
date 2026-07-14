@@ -7,12 +7,15 @@
     <meta name="description" content="Inert Pictures is a Film production company based in Brazil. Projects regarding documentaries, short-films, feature films and others have been executed.">
     <style>
         :root {
-            --bg: #060606;
-            --text: #e5e5e5;
-            --accent: #ffffff;
-            --muted: #737373;
-            --border: #1f1f1f;
-            --font-serif: "Times New Roman", Times, Baskerville, Georgia, serif;
+            --color-bg: #000000;
+            --color-header-bg: #ffffff;
+            --color-text-dark: #000000;
+            --color-text-light: #ffffff;
+            --color-text-muted: #707070;
+            --color-border: #161616;
+            
+            --font-display: "Times New Roman", Times, Baskerville, Georgia, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
         }
 
@@ -23,291 +26,209 @@
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: var(--font-serif);
+            background-color: var(--color-bg);
+            color: var(--color-text-light);
+            font-family: var(--font-sans);
             line-height: 1.6;
-            padding: 4rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Navigation Bar */
+        /* Wix-Style White Header Banner */
         header {
+            background-color: var(--color-header-bg);
+            color: var(--color-text-dark);
+            width: 100%;
+            padding: 2.5rem 2rem;
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 5rem;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
         }
 
-        .brand {
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .sys-status {
-            color: var(--muted);
-        }
-
-        /* Hero Identity Section */
-        .identity {
-            margin-bottom: 4rem;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            color: var(--accent);
-        }
-
-        .roles {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        /* Dadaist Scientific Mockery Metadata Block */
-        .metadata-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            margin-bottom: 6rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
+        .brand-title {
+            font-family: var(--font-sans);
+            font-size: 2.8rem;
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            color: var(--color-text-dark);
+            text-decoration: none;
+            line-height: 1;
         }
 
-        .meta-item span {
+        /* Right-Aligned Hamburger Menu Button */
+        .menu-btn {
+            position: absolute;
+            right: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .menu-btn span {
             display: block;
-            color: var(--muted);
-            margin-bottom: 0.25rem;
+            width: 32px;
+            height: 3px;
+            background-color: var(--color-text-dark);
+            transition: transform 0.3s ease;
         }
 
-        .meta-item p {
-            color: var(--accent);
-            font-weight: 600;
+        /* Main Content Grid */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
         }
 
-        /* Main Project Focus Block */
+        .hero-section {
+            margin-bottom: 5rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* Metadata Metrics Grid */
+        .system-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            border: 1px solid var(--color-border);
+            padding: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .matrix-cell {
+            font-family: var(--font-mono);
+        }
+
+        .matrix-label {
+            font-size: 0.7rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .matrix-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Project Display Frame */
         .work-section {
             margin-bottom: 6rem;
         }
 
-        h2 {
+        .section-header {
             font-family: var(--font-mono);
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: var(--muted);
+            color: var(--color-text-muted);
             margin-bottom: 2rem;
-        }
-
-        .project-card {
-            text-decoration: none;
-            color: inherit;
-            display: block;
         }
 
         .visual-frame {
             width: 100%;
             aspect-ratio: 16/9;
             background-color: #0d0d0d;
-            border: 1px solid var(--border);
+            border: 1px solid var(--color-border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-mono);
             font-size: 0.8rem;
-            color: var(--muted);
+            color: var(--color-text-muted);
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            transition: border-color 0.3s ease, background-color 0.3s ease;
         }
 
-        .project-card:hover .visual-frame {
-            border-color: #444;
-            background-color: #121212;
-        }
-
-        .project-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--accent);
-        }
-
-        .project-type {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .project-description {
-            font-size: 1rem;
-            color: var(--muted);
-            max-width: 650px;
-        }
-
-        /* Director Statement Section */
-        .statement-section {
-            margin-bottom: 6rem;
-            max-width: 700px;
-        }
-
-        .statement-text {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: #d1d1d1;
-        }
-
-        /* Clean Contact Integration & Footer Links */
-        .contact-section {
-            border-top: 1px solid var(--border);
-            padding-top: 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .links a {
-            color: var(--text);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.2s ease;
-        }
-
-        .links a:hover {
-            color: var(--accent);
-        }
-
-        footer {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: #333333;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Responsive Mobile Breakpoints */
+        /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            body {
+            header {
                 padding: 2rem 1rem;
             }
-            h1 {
-                font-size: 2.5rem;
+            .brand-title {
+                font-size: 1.8rem;
             }
-            .metadata-grid {
+            .menu-btn {
+                right: 1.5rem;
+            }
+            main {
+                padding: 4rem 1.5rem;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .system-matrix {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .contact-section {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2rem;
+                gap: 1.5rem;
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Wix-Aligned Top Architecture -->
     <header>
-        <a href="#" class="brand">Inert Pictures</a>
-        <div class="sys-status">Reaction Yield: 0.0%</div>
+        <a href="#" class="brand-title">Inert Pictures</a>
+        <button class="menu-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <main>
-        <!-- Profile Anchor -->
-        <section class="identity">
-            <h1>Pedro</h1>
-            <div class="roles">Director &mdash; Writer</div>
+        <!-- Identity Node -->
+        <section class="hero-section">
+            <h1 class="hero-title">Pedro</h1>
+            <div class="hero-subtitle">Director &mdash; Writer</div>
         </section>
 
-        <!-- Structural Irony Metrics -->
-        <section class="metadata-grid">
-            <div class="meta-item">
-                <span>Phase State</span>
-                <p>Inert / Stable</p>
+        <!-- Metrics Architecture -->
+        <section class="system-matrix">
+            <div class="matrix-cell">
+                <div class="matrix-label">Phase State</div>
+                <div class="matrix-value">Inert / Stable</div>
             </div>
-            <div class="meta-item">
-                <span>Entropy Coefficient</span>
-                <p>Maximum</p>
+            <div class="matrix-cell">
+                <div class="matrix-label">Entropy Coefficient</div>
+                <div class="matrix-value">Maximum</div>
             </div>
-            <div class="meta-item">
-                <span>Output System</span>
-                <p>Purely Conceptual</p>
+            <div class="matrix-cell">
+                <div class="matrix-label">Output System</div>
+                <div class="matrix-value">Purely Conceptual</div>
             </div>
         </section>
 
-        <!-- Project Delivery Block -->
+        <!-- Visual Asset Node -->
         <section class="work-section">
-            <h2>Current Project Focus</h2>
-            <!-- Paste your Google Drive or Pitch link inside href="..." below -->
-            <a href="#" class="project-card" target="_blank">
-                <div class="visual-frame">
-                    [ Winter Woman &mdash; Visual Treatment Deck ]
-                </div>
-                <div class="project-details">
-                    <div class="project-title">Winter Woman</div>
-                    <div class="project-type">Music Video Concept</div>
-                </div>
-                <p class="project-description">
-                    A comprehensive visual treatment and creative direction package developed for Raye. Engineered around classical chiaroscuro contrast dynamics, structural geometry, and expressionist physical performance.
-                </p>
-            </a>
-        </section>
-
-        <!-- Analytical / Artsy Narrative Manifest -->
-        <section class="statement-section">
-            <h2>Philosophy</h2>
-            <p class="statement-text">
-                Translating molecular structures into cinematic frameworks. Bridging the analytical precision of a Master's degree in Chemistry with the visceral, historical weight of classical European art movements. Operating under the structural conviction that the most striking reactions occur when rigid forms are intentionally dissolved.
-            </p>
-        </section>
-
-        <!-- Extracted Clean Links Map -->
-        <section class="contact-section">
-            <div class="links">
-                <a href="mailto:1peterwho@gmail.com">Email</a>
-                <a href="https://www.vimeo.com/inertpictures" target="_blank" rel="noopener">Vimeo</a>
-                <a href="https://www.instagram.com/1peterwho/" target="_blank" rel="noopener">Instagram</a>
-                <a href="http://www.linkedin.com/in/pedro-augusto-santos-703284202" target="_blank" rel="noopener">LinkedIn</a>
+            <div class="section-header">Current Project Focus</div>
+            <div class="visual-frame">
+                [ Winter Woman &mdash; Visual Treatment Deck ]
             </div>
-            <footer>
-                &copy; 2026 Inert Pictures
-            </footer>
         </section>
     </main>
 
