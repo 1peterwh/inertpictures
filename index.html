@@ -161,9 +161,6 @@
             flex-direction: column;
         }
 
-        /* --- Mobile / Touch Interactivity CSS Rules --- */
-        
-        /* Dynamic Class Trigger (Toggled via JS)[cite: 1] */
         .menu-control-wrapper.is-active .menu-drawer {
             transform: translateX(0);
             pointer-events: auto;
@@ -177,24 +174,6 @@
         }
         .menu-control-wrapper.is-active .menu-btn span:nth-child(3) {
             transform: translateY(-9px) rotate(-45deg);
-        }
-
-        /* Isolated Hover Behaviours for Mouse Devices Only[cite: 1] */
-        @media (hover: hover) {
-            .menu-control-wrapper:hover .menu-drawer {
-                transform: translateX(0);
-                pointer-events: auto;
-            }
-
-            .menu-control-wrapper:hover .menu-btn span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-            .menu-control-wrapper:hover .menu-btn span:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-control-wrapper:hover .menu-btn span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-            }
         }
 
         .drawer-nav {
@@ -311,14 +290,15 @@
                 padding: 2rem 1rem;
             }
             .brand-title {
-                font-size: 1.8rem;
+                font-size: 1.4rem; /* Downsized to prevent overlap on mobile */
             }
-            .menu-btn {
-                right: 1.5rem;
+            .menu-control-wrapper {
+                right: 1.5rem; /* Reposition container wrapper on mobile */
             }
             .menu-drawer {
-                width: 100vw;
+                width: 75vw; /* Changed from 100vw to cover 75% of the screen instead */
                 padding: 8rem 2rem 2rem 2rem;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5); /* Separates white drawer from background */
             }
             main {
                 padding: 4rem 1.5rem;
@@ -342,7 +322,7 @@
 </head>
 <body>
 
-    <!-- Wix-Aligned Top Architecture[cite: 1] -->
+    <!-- Wix-Aligned Top Architecture -->
     <header>
         <a href="#" class="brand-title">Inert Pictures</a>
         
@@ -361,7 +341,7 @@
                     <a href="#">Contact</a>
                 </nav>
                 
-                <!-- Drawer Base Social Tray[cite: 1] -->
+                <!-- Drawer Base Social Tray -->
                 <div class="social-tray">
                     <!-- Instagram -->
                     <a href="https://www.instagram.com/1peterwho/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
@@ -389,9 +369,23 @@
     </header>
 
     <main>
-        
+        <section class="system-matrix">
+            <div class="matrix-cell">
+                <div class="matrix-label">Phase State</div>
+                <div class="matrix-value">Inert / Stable</div>
+            </div>
+            <div class="matrix-cell">
+                <div class="matrix-label">Entropy Coefficient</div>
+                <div class="matrix-value">Maximum</div>
+            </div>
+            <div class="matrix-cell">
+                <div class="matrix-label">Output System</div>
+                <div class="matrix-value">Purely Conceptual</div>
+            </div>
+        </section>
+    </main>
 
-    <!-- Global Website Footer[cite: 1] -->
+    <!-- Global Website Footer -->
     <footer class="site-footer">
         <div class="social-tray">
             <!-- Instagram -->
@@ -420,18 +414,18 @@
         </div>
     </footer>
 
-    <!-- Native Interaction Toggle Engine[cite: 1] -->
+    <!-- Native Interaction Toggle Engine -->
     <script>
         const wrapper = document.querySelector('.menu-control-wrapper');
         const btn = document.querySelector('.menu-btn');
         
-        // Triggers target visibility state toggle on explicit click or tap events[cite: 1]
+        // Triggers target visibility state toggle on explicit click or tap events
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             wrapper.classList.toggle('is-active');
         });
 
-        // Global viewport capture to close the drawer seamlessly if user taps outside the target field[cite: 1]
+        // Global viewport capture to close the drawer seamlessly if user taps outside the target field
         document.addEventListener('click', (e) => {
             if (!wrapper.contains(e.target)) {
                 wrapper.classList.remove('is-active');
