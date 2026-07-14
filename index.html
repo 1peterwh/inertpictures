@@ -161,19 +161,40 @@
             flex-direction: column;
         }
 
-        .menu-control-wrapper:hover .menu-drawer {
+        /* --- Mobile / Touch Interactivity CSS Rules --- */
+        
+        /* Dynamic Class Trigger (Toggled via JS)[cite: 1] */
+        .menu-control-wrapper.is-active .menu-drawer {
             transform: translateX(0);
             pointer-events: auto;
         }
 
-        .menu-control-wrapper:hover .menu-btn span:nth-child(1) {
+        .menu-control-wrapper.is-active .menu-btn span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
-        .menu-control-wrapper:hover .menu-btn span:nth-child(2) {
+        .menu-control-wrapper.is-active .menu-btn span:nth-child(2) {
             opacity: 0;
         }
-        .menu-control-wrapper:hover .menu-btn span:nth-child(3) {
+        .menu-control-wrapper.is-active .menu-btn span:nth-child(3) {
             transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Isolated Hover Behaviours for Mouse Devices Only[cite: 1] */
+        @media (hover: hover) {
+            .menu-control-wrapper:hover .menu-drawer {
+                transform: translateX(0);
+                pointer-events: auto;
+            }
+
+            .menu-control-wrapper:hover .menu-btn span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .menu-control-wrapper:hover .menu-btn span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-control-wrapper:hover .menu-btn span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
         }
 
         .drawer-nav {
@@ -321,7 +342,7 @@
 </head>
 <body>
 
-    <!-- Wix-Aligned Top Architecture -->
+    <!-- Wix-Aligned Top Architecture[cite: 1] -->
     <header>
         <a href="#" class="brand-title">Inert Pictures</a>
         
@@ -340,7 +361,7 @@
                     <a href="#">Contact</a>
                 </nav>
                 
-                <!-- Drawer Base Social Tray -->
+                <!-- Drawer Base Social Tray[cite: 1] -->
                 <div class="social-tray">
                     <!-- Instagram -->
                     <a href="https://www.instagram.com/1peterwho/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
@@ -370,7 +391,7 @@
     <main>
         
 
-    <!-- Global Website Footer -->
+    <!-- Global Website Footer[cite: 1] -->
     <footer class="site-footer">
         <div class="social-tray">
             <!-- Instagram -->
@@ -398,6 +419,25 @@
             &copy; 2026 Inert Pictures
         </div>
     </footer>
+
+    <!-- Native Interaction Toggle Engine[cite: 1] -->
+    <script>
+        const wrapper = document.querySelector('.menu-control-wrapper');
+        const btn = document.querySelector('.menu-btn');
+        
+        // Triggers target visibility state toggle on explicit click or tap events[cite: 1]
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            wrapper.classList.toggle('is-active');
+        });
+
+        // Global viewport capture to close the drawer seamlessly if user taps outside the target field[cite: 1]
+        document.addEventListener('click', (e) => {
+            if (!wrapper.contains(e.target)) {
+                wrapper.classList.remove('is-active');
+            }
+        });
+    </script>
 
 </body>
 </html>
