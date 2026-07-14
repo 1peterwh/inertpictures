@@ -26,71 +26,6 @@
             padding: 0;
         }
         
-/* Social Trays Configuration */
-.social-tray {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.social-link {
-    color: inherit;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.social-link svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-/* Specific Contextual Modifiers */
-.menu-drawer .social-tray {
-    margin-top: auto; /* Pushes the tray firmly to the bottom of the drawer */
-    padding-top: 3rem;
-}
-
-.menu-drawer .social-link:hover {
-    color: var(--color-text-muted);
-    transform: translateY(-2px);
-}
-
-.site-footer .social-link:hover {
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/* Site Footer Structural Block */
-.site-footer {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 3rem 3rem 6rem 3rem;
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-text-muted);
-}
-
-.copyright-notice {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-@media (max-width: 768px) {
-    .site-footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-        padding: 2rem 1.5rem 4rem 1.5rem;
-    }
-}
-        
         body {
             background-color: var(--color-bg);
             color: var(--color-text-light);
@@ -100,6 +35,64 @@
             overflow-x: hidden;
         }
 
+        /* Social Trays Configuration */
+        .social-tray {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .social-link {
+            color: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Specific Contextual Modifiers */
+        .menu-drawer .social-tray {
+            margin-top: auto; /* Locks the tray to the bottom of the vertical flex drawer */
+            padding-top: 3rem;
+            color: var(--color-text-dark);
+        }
+
+        .menu-drawer .social-link:hover {
+            color: var(--color-text-muted);
+            transform: translateY(-2px);
+        }
+
+        .site-footer .social-link:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Site Footer Structural Block */
+        .site-footer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 3rem 6rem 3rem;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-text-muted);
+        }
+
+        .copyright-notice {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Header Infrastructure */
         header {
             background-color: var(--color-header-bg);
             color: var(--color-text-dark);
@@ -154,7 +147,7 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 20vw;
+            width: 33.333vw; /* Covers exactly one third of the viewport */
             height: 100vh;
             background-color: var(--color-drawer-bg);
             color: var(--color-text-dark);
@@ -164,6 +157,8 @@
             transform: translateX(100%);
             transition: transform 2.1s cubic-bezier(0.25, 1, 0.5, 1);
             pointer-events: none;
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-control-wrapper:hover .menu-drawer {
@@ -300,6 +295,10 @@
             .menu-btn {
                 right: 1.5rem;
             }
+            .menu-drawer {
+                width: 100vw;
+                padding: 8rem 2rem 2rem 2rem;
+            }
             main {
                 padding: 4rem 1.5rem;
             }
@@ -310,6 +309,12 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 padding: 1.5rem;
+            }
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+                padding: 2rem 1.5rem 4rem 1.5rem;
             }
         }
     </style>
@@ -334,13 +339,80 @@
                     <a href="#">About</a>
                     <a href="#">Contact</a>
                 </nav>
+                
+                <!-- Drawer Base Social Tray -->
+                <div class="social-tray">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/1peterwho/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.819.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.125-1.664 4.671-4.919 4.819-1.265.058-1.645.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.82-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.125 1.664-4.671 4.919-4.819 1.265-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.8,-4-4 0-2.21 1.791-4 4-4s4 1.79 4 4c0 2.2-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.8.715-1.8 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.323-1.325z"/></svg>
+                    </a>
+                    <!-- Vimeo -->
+                    <a href="https://www.vimeo.com/inertpictures" target="_blank" rel="noopener" class="social-link" aria-label="Vimeo">
+                        <svg viewBox="0 0 24 24"><path d="M22.396 7.2c-.098 2.055-1.54 4.873-4.327 8.452-2.888 3.708-5.332 5.562-7.332 5.562-1.24 0-2.287-1.144-3.14-3.433l-1.714-6.273c-.635-2.287-1.314-3.431-2.036-3.431-.157 0-.706.328-1.648.98l-.986-.98c1.018-.895 2.019-1.741 3.003-2.536 1.353-1.092 2.37-1.684 3.053-1.77 1.611-.205 2.6.9 2.969 3.316.398 2.585.674 4.195.834 4.828.361 2.219.749 3.328 1.157 3.328.315 0 .9-.536 1.758-1.606.858-1.07 1.311-1.884 1.359-2.441.109-1.268-.344-1.902-1.365-1.902-.48 0-.974.108-1.48.324 1.002-3.284 2.91-4.887 5.722-4.811 2.072.057 3.057 1.419 2.955 4.093z"/></svg>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31 0 2.594.21 3.813.626.12.04.19.166.16.29-.53 2.185-1.76 4.04-3.48 5.29-.11.08-.26.065-.35-.04-.61-.735-1.44-1.255-2.37-1.475-.13-.03-.2.083-.16.208.5 1.583.33 3.25-.47 4.693-.1.18-.32.227-.48.093-.72-.614-1.63-.984-2.63-.984-2.18 0-3.95 1.77-3.95 3.95s1.77 3.95 3.95 3.95 3.95-1.77 3.95-3.95v-10.7c1.7.514 3.19 1.574 4.2 2.984.08.11.23.13.33.05a8.77 8.77 0 0 0 2.82-5.188c.02-.12-.05-.24-.17-.272a9.14 9.14 0 0 0-1.89-.2zm-.05 1.98v1.8c-.89 0-1.75-.24-2.52-.693-.09-.05-.2.015-.2.12v9.33c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c1.17 0 2.26.34 3.2 1.01.1.07.24-.005.24-.117v-11.458c1.38-.41 2.83-.41 4.2.003-.03.14-.04.282-.04.425 0 2.54 1.83 4.654 4.27 5.08.08.01.15-.05.15-.132v-1.95c-1.33-.35-2.35-1.442-2.53-2.793a.214.214 0 0 0-.21-.185h-.56z"/></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="http://www.linkedin.com/in/pedro-augusto-santos-703284202" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Canvas area is currently cleared out and ready for your content -->
+        <!-- Metrics Architecture Container -->
+        <section class="system-matrix">
+            <div class="matrix-cell">
+                <div class="matrix-label">Phase State</div>
+                <div class="matrix-value">Inert / Stable</div>
+            </div>
+            <div class="matrix-cell">
+                <div class="matrix-label">Entropy Coefficient</div>
+                <div class="matrix-value">Maximum</div>
+            </div>
+            <div class="matrix-cell">
+                <div class="matrix-label">Output System</div>
+                <div class="matrix-value">Purely Conceptual</div>
+            </div>
+        </section>
     </main>
+
+    <!-- Global Website Footer -->
+    <footer class="site-footer">
+        <div class="social-tray">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/1peterwho/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.819.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.125-1.664 4.671-4.919 4.819-1.265.058-1.645.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.82-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.125 1.664-4.671 4.919-4.819 1.265-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.8,-4-4 0-2.21 1.791-4 4-4s4 1.79 4 4c0 2.2-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.8.715-1.8 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.323-1.325z"/></svg>
+            </a>
+            <!-- Vimeo -->
+            <a href="https://www.vimeo.com/inertpictures" target="_blank" rel="noopener" class="social-link" aria-label="Vimeo">
+                <svg viewBox="0 0 24 24"><path d="M22.396 7.2c-.098 2.055-1.54 4.873-4.327 8.452-2.888 3.708-5.332 5.562-7.332 5.562-1.24 0-2.287-1.144-3.14-3.433l-1.714-6.273c-.635-2.287-1.314-3.431-2.036-3.431-.157 0-.706.328-1.648.98l-.986-.98c1.018-.895 2.019-1.741 3.003-2.536 1.353-1.092 2.37-1.684 3.053-1.77 1.611-.205 2.6.9 2.969 3.316.398 2.585.674 4.195.834 4.828.361 2.219.749 3.328 1.157 3.328.315 0 .9-.536 1.758-1.606.858-1.07 1.311-1.884 1.359-2.441.109-1.268-.344-1.902-1.365-1.902-.48 0-.974.108-1.48.324 1.002-3.284 2.91-4.887 5.722-4.811 2.072.057 3.057 1.419 2.955 4.093z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31 0 2.594.21 3.813.626.12.04.19.166.16.29-.53 2.185-1.76 4.04-3.48 5.29-.11.08-.26.065-.35-.04-.61-.735-1.44-1.255-2.37-1.475-.13-.03-.2.083-.16.208.5 1.583.33 3.25-.47 4.693-.1.18-.32.227-.48.093-.72-.614-1.63-.984-2.63-.984-2.18 0-3.95 1.77-3.95 3.95s1.77 3.95 3.95 3.95 3.95-1.77 3.95-3.95v-10.7c1.7.514 3.19 1.574 4.2 2.984.08.11.23.13.33.05a8.77 8.77 0 0 0 2.82-5.188c.02-.12-.05-.24-.17-.272a9.14 9.14 0 0 0-1.89-.2zm-.05 1.98v1.8c-.89 0-1.75-.24-2.52-.693-.09-.05-.2.015-.2.12v9.33c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c1.17 0 2.26.34 3.2 1.01.1.07.24-.005.24-.117v-11.458c1.38-.41 2.83-.41 4.2.003-.03.14-.04.282-.04.425 0 2.54 1.83 4.654 4.27 5.08.08.01.15-.05.15-.132v-1.95c-1.33-.35-2.35-1.442-2.53-2.793a.214.214 0 0 0-.21-.185h-.56z"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="http://www.linkedin.com/in/pedro-augusto-santos-703284202" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+        </div>
+        <div class="copyright-notice">
+            &copy; 2026 Inert Pictures
+        </div>
+    </footer>
 
 </body>
 </html>
