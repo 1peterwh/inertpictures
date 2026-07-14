@@ -14,11 +14,23 @@
             --color-text-light: #ffffff;
             --color-text-muted: #707070;
             --color-border: #161616;
-            
-            --font-display: "Times New Roman", Times, Baskerville, Georgia, serif;
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+            /* Global fonts updated to Courier */
+            --font-display: "Courier New", Courier, monospace;
+            --font-sans: "Courier New", Courier, monospace;
+            --font-mono: "Courier New", Courier, monospace;
         }
+
+        /* 
+          ISOLATE BRAND NAME:
+          Replace '.brand-class' with the actual class or HTML tag 
+          used for your brand name (e.g., .logo, h1, or .brand-title) 
+          so it keeps its original Serif style.
+        */
+        .brand-class {
+            font-family: "Times New Roman", Times, Baskerville, Georgia, serif !important;
+        }
+    </style>
 
         * {
             box-sizing: border-box;
