@@ -7,35 +7,23 @@
     <meta name="description" content="Inert Pictures is a Film production company based in Brazil. Projects regarding documentaries, short-films, feature films and others have been executed.">
     <style>
         :root {
-        --color-bg: #000000;
-        --color-header-bg: #ffffff;
-        --color-drawer-bg: #ffffff;
-        --color-text-dark: #000000;
-        --color-text-light: #ffffff;
-        --color-text-muted: #707070;
-        --color-border: #161616;
+            --color-bg: #000000;
+            --color-header-bg: #ffffff;
+            --color-drawer-bg: #ffffff;
+            --color-text-dark: #000000;
+            --color-text-light: #ffffff;
+            --color-text-muted: #707070;
+            --color-border: #161616;
 
-        --font-display: "Courier New", Courier, monospace;
-        --font-sans: "Courier New", Courier, monospace;
-        --font-mono: "Courier New", Courier, monospace;
-    }
-
-    /* Replace '.brand-class' with the class/identifier of your brand name element */
-    .brand-class {
-        font-family: "Times New Roman", Times, Baskerville, Georgia, serif !important;
-    }
+            --font-display: "Courier New", Courier, monospace;
+            --font-sans: "Courier New", Courier, monospace;
+            --font-mono: "Courier New", Courier, monospace;
         }
 
-        /* 
-          ISOLATE BRAND NAME:
-          Replace '.brand-class' with the actual class or HTML tag 
-          used for your brand name (e.g., .logo, h1, or .brand-title) 
-          so it keeps its original Serif style.
-        */
-        .brand-class {
+        /* Isolate Brand Name */
+        .brand-title {
             font-family: "Times New Roman", Times, Baskerville, Georgia, serif !important;
         }
-    </style>
 
         * {
             box-sizing: border-box;
@@ -75,7 +63,7 @@
 
         /* Specific Contextual Modifiers */
         .menu-drawer .social-tray {
-            margin-top: auto; /* Locks the tray to the bottom of the vertical flex drawer */
+            margin-top: auto;
             padding-top: 3rem;
             color: var(--color-text-dark);
         }
@@ -164,7 +152,7 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 22vw; /* Covers exactly one third of the viewport */
+            width: 22vw;
             height: 100vh;
             background-color: var(--color-drawer-bg);
             color: var(--color-text-dark);
@@ -307,15 +295,15 @@
                 padding: 2rem 1rem;
             }
             .brand-title {
-                font-size: 1.4rem; /* Downsized to prevent overlap on mobile */
+                font-size: 1.4rem;
             }
             .menu-control-wrapper {
-                right: 1.5rem; /* Reposition container wrapper on mobile */
+                right: 1.5rem;
             }
             .menu-drawer {
-                width: 75vw; /* Changed from 100vw to cover 75% of the screen instead */
+                width: 75vw;
                 padding: 8rem 2rem 2rem 2rem;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.5); /* Separates white drawer from background */
+                box-shadow: -10px 0 30px rgba(0,0,0,0.5);
             }
             main {
                 padding: 4rem 1.5rem;
@@ -387,6 +375,7 @@
 
     <main>
         
+    </main>
 
     <!-- Global Website Footer -->
     <footer class="site-footer">
